@@ -126,8 +126,8 @@ const createList = (availableItems) => {
     if (item.available === true) {
       groceryList.push(item.name);
     }
-    return groceryList;
   });
+  return groceryList;
 };
 
 /* ------------------------------------------------------------------------------------------------
