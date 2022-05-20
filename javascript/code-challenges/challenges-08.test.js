@@ -54,7 +54,6 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   return charArray.sort((a, b) => {
-
     if (a.children.length > b.children.length) {
       return 1;
     } else if (a.children.length < b.children.length) {
@@ -96,8 +95,8 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  let regex = /\d/g
-  if (regex.test(input)) === true {
+  let regex = /\d/
+  if (regex.test(input)) {
     return true;
   } else {
     return false;
@@ -113,6 +112,12 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
+  let regex = /world\b/
+  if (regex.test(input)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -125,6 +130,7 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
