@@ -67,7 +67,14 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+  let totalSum = 0;
+  for (let i in matrix) {
+    let arrSum = matrix[i].reduce((runningTotal, currentNumber) => {
+      return parseInt(runningTotal + currentNumber);
+    }, 0);
+    totalSum += arrSum;
+  }
+  return totalSum;
 };
 
 
@@ -95,7 +102,16 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  let grandTotal = [];
 
+  for (let i = 0; i < hoursOpen.length; i++) {
+    let totalSum = 0;
+    for (let j = 0; j < cookieStores.length; j++) {
+      totalSum += cookieStores[j][i];
+    }
+    grandTotal.push(totalSum);
+  }
+  return grandTotal;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -110,6 +126,15 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  let objArr = [];
+  hours.forEach((hour, idx) => {
+    let hourObject = {
+      sales: `${data[idx]} cookies`,
+      time: hour
+    };
+    objArr.push(hourObject);
+  });
+  return objArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -134,7 +159,7 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
