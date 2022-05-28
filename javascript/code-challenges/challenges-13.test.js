@@ -38,6 +38,8 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
+  return arr.filter((value) => value.includes(':)'));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -50,6 +52,8 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  let newArr = arr.map((value => value.replace(/[^\w]+/gi, '')));
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,7 +76,19 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  let newArr = [];
+  arr.map(value => {
+    if (value.includes(':)')) {
+      newArr.push(value);
+    }
+  });
+  if (newArr.length === arr.length) {
+    return true;
+  } else {
+    return false;
+  }
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
