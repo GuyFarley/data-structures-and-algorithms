@@ -8,6 +8,16 @@ Write a function named longestString that takes in an array of strings and retur
 
 const longestString = (arr) => {
   // Solution code here...
+  let index = -1;
+  let currentLongest = 0;
+
+  arr.forEach((str, idx) => {
+    if (str.length > currentLongest) {
+      currentLongest = str.length;
+      index = idx;
+    }
+  });
+  return index;
 };
 
 
@@ -66,6 +76,9 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  let arr = str.split('');
+  let result = arr.filter((element, idx) => idx % 2 === 1);
+  return result.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
