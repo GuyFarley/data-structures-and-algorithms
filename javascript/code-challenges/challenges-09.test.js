@@ -143,9 +143,12 @@ const getHouses = (arr) => {
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named hasChildrenValues that uses Object.values to determine if any given character in the data set has children.
+Write a function named hasChildrenValues that
+uses Object.values to determine if any given character in the data set has children.
 
-This function should take in an array of data and a character name and return a Boolean.
+This function should take in an array of data
+and a character name
+and return a Boolean.
 
 For example:
 hasChildrenValues(characters, 'Cersei') will return true
@@ -153,7 +156,18 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+
+  let kids = 0;
+  arr.forEach(person => {
+    if (person.name === character) {
+      Object.keys(person).forEach((key, idx) => {
+        if (key === 'children') {
+          kids = Object.values(person)[idx].length;
+        }
+      });
+    }
+  });
+  return kids ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
