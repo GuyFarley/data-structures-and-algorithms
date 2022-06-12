@@ -140,7 +140,19 @@ const salesData = (hours, data) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named howManyTreats that will return the quantity of treats you need to pick up from the pet store today from this array. The structure of the array will not change.
+Write a function named howManyTreats that will
+
+return the quantity of treats you need to pick up from the pet store today from this array. The structure of the array will not change.
+
+iterate through array of objects (errands)
+find object with property === 'Pet Store'
+
+iterate through that object to find property === items
+iterate through items array to find object property 'name' = Treats
+
+return value for 'quantity' key in that object
+
+
 ------------------------------------------------------------------------------------------------ */
 
 const errands = [
@@ -159,8 +171,17 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-
+  let treats = 0;
+  arr.forEach(errandObj => {
+    Object.values(errandObj).forEach(value => {
+      if (value === 'Pet store') {
+        treats = errandObj.items[1].quantity;
+      }
+    });
+  });
+  return treats;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
