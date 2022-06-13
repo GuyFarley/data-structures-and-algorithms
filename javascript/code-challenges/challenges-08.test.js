@@ -131,7 +131,7 @@ Return an array containing all the matches.
 const isCapitalized = (str) => {
   // Solution code here...
   let strArr = str.split(' ');
-  let regex = /[A-Z][a-z]*/;
+  let regex = /[A-Z]+[a-z]+$/
 
   return strArr.filter(word => regex.test(word));
 };
