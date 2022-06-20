@@ -42,6 +42,15 @@ describe('Linked List', () => {
     expect(result).toEqual(true);
   });
 
+  test('Does not include value', () => {
+    const linkedList = new LinkedList;
+    linkedList.add(1);
+    linkedList.add(2);
+    linkedList.add(3);
+    let result = linkedList.includes(5);
+    expect(result).toEqual(false);
+  });
+
   test('To string', () => {
     const linkedList = new LinkedList;
     linkedList.add(1);
