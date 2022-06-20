@@ -21,6 +21,16 @@
   - Returns: a string representing all the values in the Linked List, formatted as:
 `"{ a } -> { b } -> { c } -> NULL"`
 
+- **append**
+  - arguments: new value
+  - adds a new node with the given value to the end of the list
+- **insert before**
+  - arguments: value, new value
+  - adds a new node with the given new value immediately before the first node that has the value specified
+- **insert after**
+  - arguments: value, new value
+  - adds a new node with the given new value immediately after the first node that has the value specified
+
 ## Approach & Efficiency
 
 - Created new methods within the LinkedList class for each of the requirements: insert, includes, and to string
