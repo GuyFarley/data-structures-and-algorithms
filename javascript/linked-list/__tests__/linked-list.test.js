@@ -55,6 +55,6 @@ describe('Linked List', () => {
     const linkedList = new LinkedList;
     linkedList.add(1);
     let result = linkedList.toString();
-    expect(result).toEqual('{1}->NULL');
+    expect(result).toEqual('{ 1 } -> NULL');
   });
 });
