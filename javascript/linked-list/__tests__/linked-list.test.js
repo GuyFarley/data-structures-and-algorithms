@@ -57,4 +57,21 @@ describe('Linked List', () => {
     let result = linkedList.toString();
     expect(result).toEqual('{ 1 } -> NULL');
   });
+
+  test('Adds value to end of linked list', () => {
+    const linkedList = new LinkedList;
+    linkedList.add(1);
+    linkedList.add(2);
+    linkedList.add(3);
+    expect(linkedList.head.next.next.value).toEqual(3);
+  });
+
+  // test('Adds a new node before specified value', () => {
+
+  // });
+
+  // test('Adds a new node before specified value', () => {
+
+  // });
+
 });

@@ -25,7 +25,6 @@ class LinkedList {
     console.log('done traversing');
   }
 
-  // completed in class demo - adds a node to the end of linked list
   add(value) {
     const node = new Node(value);
     if (!this.head) {
@@ -70,6 +69,19 @@ class LinkedList {
     string += 'NULL';
     return string;
   }
+
+  insertBefore(value, newValue) {
+    let insertNode = new Node(newValue);
+    let current = this.head;
+    let temp;
+    while (current) {
+      if (current.next.value === value) {
+        // temp = current;
+        // current = insertNode;
+        // current.next = temp;
+      }
+    }
+  }
 }
 
 let linkedList = new LinkedList();
@@ -86,5 +98,9 @@ console.log(result);
 linkedList.traverse();
 
 console.log(linkedList.toString());
+
+linkedList.insertBefore(3, 5);
+
+linkedList.traverse();
 
 module.exports = LinkedList;

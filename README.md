@@ -6,3 +6,5 @@
 
 - [Reverse Array](./javascript/array-reverse/README.md)
 - [Insert Shift Array](./javascript/array-insert-shift/README.md)
+- [Binary Search Array](./javascript/array-binary-search/README.md)
+- [Linked Lists](./javascript/linked-list/README.md)
