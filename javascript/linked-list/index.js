@@ -82,7 +82,22 @@ class LinkedList {
       }
     }
   }
+
+  // linked-list-kth
+  kthFromEnd(k) {
+    let current = this.head;
+    let nodes = 0;
+    while (current) {
+      nodes += 1;
+      current = current.next;
+    }
+    let kthNode = (nodes - k);
+    console.log('kthNode ', kthNode);
+    return kthNode;
+  }
 }
+
+
 
 let linkedList = new LinkedList();
 console.log(linkedList.head);
@@ -90,17 +105,20 @@ console.log(linkedList.head);
 linkedList.add(1);
 linkedList.add(2);
 linkedList.add(3);
-linkedList.insert(4);
+linkedList.add(4);
+linkedList.add(5);
 
-let result = linkedList.includes(2);
-console.log(result);
-
-linkedList.traverse();
-
-console.log(linkedList.toString());
-
-linkedList.insertBefore(3, 5);
+// let result = linkedList.includes(2);
+// console.log(result);
 
 linkedList.traverse();
+
+console.log(linkedList.kthFromEnd(2));
+
+// console.log(linkedList.toString());
+
+// linkedList.insertBefore(3, 5);
+
+// linkedList.traverse();
 
 module.exports = LinkedList;
