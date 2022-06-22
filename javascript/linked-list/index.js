@@ -102,27 +102,30 @@ class LinkedList {
   }
 }
 
+// linked-list-zip
+let linkedList1 = new LinkedList();
+let linkedList2 = new LinkedList();
 
+linkedList1.add(1);
+linkedList1.add(3);
+linkedList1.add(2);
 
-let linkedList = new LinkedList();
-console.log(linkedList.head);
+linkedList2.add(5);
+linkedList2.add(9);
+linkedList2.add(4);
 
-linkedList.add('a');
-linkedList.add('b');
-linkedList.add('c');
-linkedList.add('d');
-linkedList.add('e');
+function listZip(list1, list2) {
 
-// let result = linkedList.includes(2);
-// console.log(result);
+  let current1 = list1.head;
+  let current2 = list2.head;
 
-linkedList.traverse();
+  while (current1 && current2) {
+    console.log(current1.value);
 
-console.log(linkedList.kthFromEnd(2));
+  }
+}
 
-// console.log(linkedList.toString());
-
-// linkedList.insertBefore(3, 5);
+listZip(linkedList1, linkedList2);
 
 // linkedList.traverse();
 
