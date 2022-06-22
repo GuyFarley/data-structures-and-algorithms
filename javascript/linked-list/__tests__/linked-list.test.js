@@ -66,6 +66,17 @@ describe('Linked List', () => {
     expect(linkedList.head.next.next.value).toEqual(3);
   });
 
+  test('Returns kth node from end of linked list', () => {
+    const linkedList = new LinkedList;
+    linkedList.add(1);
+    linkedList.add(2);
+    linkedList.add(3);
+    linkedList.add(4);
+    linkedList.add(5);
+    let result = linkedList.kthFromEnd(2);
+    expect(result).toEqual(3);
+  });
+
   // test('Adds a new node before specified value', () => {
 
   // });
