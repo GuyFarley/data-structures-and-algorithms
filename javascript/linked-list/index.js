@@ -92,8 +92,13 @@ class LinkedList {
       current = current.next;
     }
     let kthNode = (nodes - k);
-    console.log('kthNode ', kthNode);
-    return kthNode;
+    let newCurrent = this.head;
+    while (newCurrent) {
+      if (newCurrent === kthNode) {
+        return newCurrent.value;
+      }
+      newCurrent = newCurrent.next;
+    }
   }
 }
 
@@ -102,11 +107,11 @@ class LinkedList {
 let linkedList = new LinkedList();
 console.log(linkedList.head);
 
-linkedList.add(1);
-linkedList.add(2);
-linkedList.add(3);
-linkedList.add(4);
-linkedList.add(5);
+linkedList.add('a');
+linkedList.add('b');
+linkedList.add('c');
+linkedList.add('d');
+linkedList.add('e');
 
 // let result = linkedList.includes(2);
 // console.log(result);
