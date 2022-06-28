@@ -78,7 +78,50 @@ class Queue {
   }
 }
 
+class PseudoQueue {
+  constructor() {
+    this.inputStack = new Stack();
+    this.outputStack = new Stack();
+  }
+
+  enqueue(value) {
+    if ((this.inputStack.top === null) && (this.outputStack.top === null)) {
+      this.inputStack.push(value);
+      let top = this.inputStack.pop(this.inputStack.top);
+      this.outputStack.push(top);
+      let dequeueNode = this.outputStack.pop();
+      console.log(dequeueNode.value);
+      return dequeueNode;
+    } else if ((this.inputStack.top) && (this.outputStack.top === null)) {
+      while (this.inputStack.top) {
+        let top = this.inputStack.pop(this.inputStack.top);
+        this.outputStack.push(top);
+        let dequeueNode = this.outputStack.pop();
+        console.log(dequeueNode.value);
+        return dequeueNode;
+      }
+    } else if ((this.inputStack.top === null) && (this.outputStack.top)) {
+      while (this.outputStack.top) {
+        let top = this.outputStack.pop(this.outputStack.top);
+        this.inputStack.push(top);
+      }
+      while (this.inputStack.top) {
+        let top = this.inputStack.pop(this.inputStack.top);
+        this.outputStack.push(top);
+        let dequeueNode = this.outputStack.pop();
+        console.log(dequeueNode.value);
+        return dequeueNode;
+      }
+    }
+  }
+}
+
+let pseudoQueue = new PseudoQueue();
+let enqueue = pseudoQueue.enqueue(5);
+console.log(enqueue);
+
 module.exports = {
   Stack,
   Queue,
+  PseudoQueue
 };
