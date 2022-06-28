@@ -78,7 +78,46 @@ class Queue {
   }
 }
 
+class PseudoQueue {
+  constructor() {
+    this.inputStack = new Stack();
+    this.outputStack = new Stack();
+  }
+
+  enqueue(value) {
+    if ((this.inputStack.isEmpty()) && (this.outputStack.isEmpty())) {
+      let newNode = new Node(value);
+      this.inputStack.push(newNode);
+
+    } else if (this.outputStack.isEmpty) {
+      let newNode = new Node(value);
+      this.inputStack.push(newNode);
+
+    } else if ((this.inputStack.isEmpty) && (!this.outputStack.isEmpty)) {
+      while (!this.outputStack.isEmpty) {
+        this.inputStack.push(this.outputStack.pop());
+      }
+      let newNode = new Node(value);
+      this.inputStack.push(newNode);
+    }
+  }
+
+  dequeue() {
+    if (this.outputStack.isEmpty()) {
+      while (!this.inputStack.isEmpty()) {
+        let popNode = this.inputStack.pop();
+        console.log(popNode.value);
+        this.outputStack.push(this.inputStack.pop());
+      }
+      return this.outputStack.pop();
+    } else {
+      return this.outputStack.pop();
+    }
+  }
+}
+
 module.exports = {
   Stack,
   Queue,
+  PseudoQueue
 };
