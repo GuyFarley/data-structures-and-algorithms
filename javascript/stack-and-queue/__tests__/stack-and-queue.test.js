@@ -1,6 +1,6 @@
 'use strict';
 
-const { Stack } = require('../index');
+const { Stack, PseudoQueue } = require('../index');
 const { Queue } = require('../index');
 
 describe('Stack Tests', () => {
@@ -136,5 +136,29 @@ describe('Queue Tests', () => {
     expect(emptyDequeue).toBeNull();
     expect(emptyPeek).toEqual(undefined);
   });
+});
 
+describe('PseudoQueue Tests', () => {
+
+  test('Properly adds node to input stack', () => {
+    let pseudo = new PseudoQueue();
+    pseudo.enqueue('a');
+    pseudo.enqueue('b');
+    pseudo.enqueue('c');
+
+    let topNode = pseudo.inputStack.peek();
+    expect(topNode.value).toEqual('c');
+  });
+
+  test('Properly removes node from output stack', () => {
+    let pseudo = new PseudoQueue();
+    pseudo.enqueue('a');
+    // pseudo.enqueue('b');
+    // pseudo.enqueue('c');
+    let inputNode = pseudo.inputStack.peek();
+    console.log(inputNode.value);
+
+
+    expect((pseudo.dequeue()).value).toEqual('a');
+  });
 });

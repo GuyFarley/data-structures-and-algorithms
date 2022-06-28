@@ -85,40 +85,36 @@ class PseudoQueue {
   }
 
   enqueue(value) {
-    if ((this.inputStack.top === null) && (this.outputStack.top === null)) {
-      this.inputStack.push(value);
-      let top = this.inputStack.pop(this.inputStack.top);
-      this.outputStack.push(top);
-      let dequeueNode = this.outputStack.pop();
-      console.log(dequeueNode.value);
-      return dequeueNode;
-    } else if ((this.inputStack.top) && (this.outputStack.top === null)) {
-      while (this.inputStack.top) {
-        let top = this.inputStack.pop(this.inputStack.top);
-        this.outputStack.push(top);
-        let dequeueNode = this.outputStack.pop();
-        console.log(dequeueNode.value);
-        return dequeueNode;
+    if ((this.inputStack.isEmpty()) && (this.outputStack.isEmpty())) {
+      let newNode = new Node(value);
+      this.inputStack.push(newNode);
+
+    } else if (this.outputStack.isEmpty) {
+      let newNode = new Node(value);
+      this.inputStack.push(newNode);
+
+    } else if ((this.inputStack.isEmpty) && (!this.outputStack.isEmpty)) {
+      while (!this.outputStack.isEmpty) {
+        this.inputStack.push(this.outputStack.pop());
       }
-    } else if ((this.inputStack.top === null) && (this.outputStack.top)) {
-      while (this.outputStack.top) {
-        let top = this.outputStack.pop(this.outputStack.top);
-        this.inputStack.push(top);
+      let newNode = new Node(value);
+      this.inputStack.push(newNode);
+    }
+  }
+
+  dequeue() {
+    if (this.outputStack.isEmpty()) {
+      while (!this.inputStack.isEmpty()) {
+        let popNode = this.inputStack.pop();
+        console.log(popNode.value);
+        this.outputStack.push(this.inputStack.pop());
       }
-      while (this.inputStack.top) {
-        let top = this.inputStack.pop(this.inputStack.top);
-        this.outputStack.push(top);
-        let dequeueNode = this.outputStack.pop();
-        console.log(dequeueNode.value);
-        return dequeueNode;
-      }
+      return this.outputStack.pop();
+    } else {
+      return this.outputStack.pop();
     }
   }
 }
-
-let pseudoQueue = new PseudoQueue();
-let enqueue = pseudoQueue.enqueue(5);
-console.log(enqueue);
 
 module.exports = {
   Stack,
