@@ -1,6 +1,6 @@
 'use strict';
 
-const { Stack, PseudoQueue } = require('../index');
+const { Stack, PseudoQueue, AnimalShelter } = require('../index');
 const { Queue } = require('../index');
 
 describe('Stack Tests', () => {
@@ -160,5 +160,48 @@ describe('PseudoQueue Tests', () => {
 
 
     expect((pseudo.dequeue()).value).toEqual('a');
+  });
+});
+
+describe('Animal Shelter Tests', () => {
+
+  test('Properly adds dog to dogQueue', () => {
+    let shelter = new AnimalShelter();
+    shelter.enqueue('dog');
+
+    let animal = shelter.dogQueue.peek();
+    console.log('animal: ', animal);
+    expect(animal).toEqual('dog');
+  });
+
+  test('Properly adds cat to catQueue', () => {
+    let shelter = new AnimalShelter();
+    shelter.enqueue('cat');
+
+    let animal = shelter.catQueue.peek();
+    console.log('animal: ', animal);
+    expect(animal).toEqual('cat');
+  });
+
+  test('Properly dequeues a dog from dogQueue', () => {
+    let shelter = new AnimalShelter();
+    shelter.enqueue('dog');
+    shelter.enqueue('cat');
+    shelter.enqueue('dog');
+
+    let animal = shelter.dequeue('dog');
+    console.log('animal: ', animal);
+    expect(animal).toEqual('dog');
+  });
+
+  test('Properly dequeues a cat from catQueue', () => {
+    let shelter = new AnimalShelter();
+    shelter.enqueue('cat');
+    shelter.enqueue('dog');
+    shelter.enqueue('dog');
+
+    let animal = shelter.dequeue('cat');
+    console.log('animal: ', animal);
+    expect(animal).toEqual('cat');
   });
 });
