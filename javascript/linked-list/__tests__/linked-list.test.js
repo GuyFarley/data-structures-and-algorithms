@@ -1,7 +1,8 @@
 'use strict';
 
 // Require our linked list implementation
-const LinkedList = require('../index');
+const { LinkedList, listZip } = require('../index');
+
 
 describe('Linked List', () => {
 
@@ -76,6 +77,23 @@ describe('Linked List', () => {
     let result = linkedList.kthFromEnd(2);
     expect(result).toEqual(3);
   });
+
+  test('Properly zips 2 linked lists together', () => {
+    let linkedList1 = new LinkedList();
+    linkedList1.add(1);
+    linkedList1.add(3);
+    linkedList1.add(2);
+    let linkedList2 = new LinkedList();
+    linkedList2.add(5);
+    linkedList2.add(9);
+    linkedList2.add(4);
+
+    let newList = listZip(linkedList1, linkedList2);
+    expect(newList.head.next.value).toEqual(5);
+    expect(newList.head.next.next.next.next.value).toEqual(2);
+  });
+
+
 
   // test('Adds a new node before specified value', () => {
 
