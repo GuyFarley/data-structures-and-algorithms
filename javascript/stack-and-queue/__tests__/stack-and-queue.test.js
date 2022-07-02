@@ -1,7 +1,7 @@
 'use strict';
 
-const { Stack, PseudoQueue, AnimalShelter } = require('../index');
-const { Queue } = require('../index');
+const { is } = require('cheerio/lib/api/traversing');
+const { Stack, PseudoQueue, AnimalShelter, Queue, validateBrackets } = require('../index');
 
 describe('Stack Tests', () => {
   test('Can successfully push onto a stack', () => {
@@ -203,5 +203,18 @@ describe('Animal Shelter Tests', () => {
     let animal = shelter.dequeue('cat');
     console.log('animal: ', animal);
     expect(animal).toEqual('cat');
+  });
+
+  test('Returns false if a string contains imbalanced brackets', () => {
+    let string = '[({}]';
+    let isValidated = validateBrackets(string);
+    console.log(isValidated);
+    expect(isValidated).toEqual(false);
+  });
+  test('Returns true if a string contains balanced brackets', () => {
+    let string = '{}{Code}[Fellows](())';
+    let isValidated = validateBrackets(string);
+    console.log(isValidated);
+    expect(isValidated).toEqual(true);
   });
 });

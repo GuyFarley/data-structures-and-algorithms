@@ -142,34 +142,26 @@ class AnimalShelter {
 'use strict';
 
 function validateBrackets(string) {
+  let stack = new Stack();
   let strArray = string.split('');
-  console.log(strArray);
-  let parenthOpen = 0;
-  let parenthClose = 0;
-  let squareOpen = 0;
-  let squareClose = 0;
-  let curlyOpen = 0;
-  let curlyClose = 0;
-
-  for (let i = 0; i < strArray.length; i++) {
-    if (strArray[i] === '(') {
-      parenthOpen += 1;
-      console.log(parenthOpen);
+  strArray.forEach(val => {
+    if (val === '(' || val === '{' || val === '[') {
+      stack.push(val);
+    } else if (val === ')' || val === '}' || val === ']') {
+      let peek = stack.peek();
+      if (val === ')' && peek === '(') {
+        stack.pop();
+      } else if (val === '}' && peek === '{') {
+        stack.pop();
+      } else if (val === ']' && peek === '[') {
+        stack.pop();
+      }
     }
-    else if (strArray[i] === ')') { parenthClose += 1; }
-    else if (strArray[i] === '[') { squareOpen += 1; }
-    else if (strArray[i] === ']') { squareClose += 1; }
-    else if (strArray[i] === '{') { curlyOpen += 1; }
-    else if (strArray[i] === '}') { curlyClose += 1; }
-  }
-  if ((parenthOpen === parenthClose) && (squareOpen === squareClose) && (curlyOpen === curlyClose)) {
-    return true;
-  } else {
-    return false;
-  };
-};
+  });
+  return stack.isEmpty();
+}
 
-let string = '{(})';
+let string = '{}{Code}[Fellows](())';
 let isValidated = validateBrackets(string);
 console.log(isValidated);
 
@@ -177,5 +169,6 @@ module.exports = {
   Stack,
   Queue,
   PseudoQueue,
-  AnimalShelter
+  AnimalShelter,
+  validateBrackets,
 };
