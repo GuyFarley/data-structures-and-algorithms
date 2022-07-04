@@ -62,31 +62,63 @@ class BinaryTree {
     return results;
 
   }
+
+  // binary search tree method
+  // adds new node with specified value to correct location in BST
+  add(value) {
+    const newNode = new Node(value);
+    if (this.root === null) {
+      this.root = newNode;
+    }
+    let current = this.root;
+    while (current) {
+      if (value < current.value) {
+        if (current.left === null) {
+          current.left = newNode;
+        }
+        current = current.left;
+      } else {
+        if (current.right === null) {
+          current.right = newNode;
+        }
+        current = current.right;
+      }
+    }
+  }
+
+  // binary search tree method
+  // returns true if value is contained in BST, otherwise returns false
+  contains(value) {
+    let current = this.root;
+    let contains = false;
+    while (current) {
+      if (value < current.value) {
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        contains = true;
+      }
+
+    }
+    return contains;
+  }
+
 }
 
-class BinarySearchTree {
-  // This class should be a sub-class (or your languages equivalent) of the Binary Tree Class, with the following additional methods:
-  // Add
-  // Arguments: value
-  // Return: nothing
-  // Adds a new node with that value in the correct location in the binary search tree.
-  // Contains
-  // Argument: value
-  // Returns: boolean indicating whether or not the value is in the tree at least once.
-}
+let tree = new BinaryTree();
+tree.root = new Node(1);
+tree.root.left = new Node(2);
+tree.root.right = new Node(5);
+tree.root.left.left = new Node(3);
+tree.root.left.right = new Node(4);
+tree.root.right.right = new Node(6);
 
-// let tree = new BinaryTree();
-// tree.root = new Node(10);
-// tree.root.left = new Node(5);
-// tree.root.right = new Node(15);
-// tree.root.left.left = new Node(1);
-// tree.root.left.right = new Node(8);
-// tree.root.right.right = new Node(20);
+let trueResult = tree.contains(4);
+console.log(trueResult);
 
-// let preOrder = tree.preOrder();
-// let inOrder = tree.inOrder();
-// let postOrder = tree.postOrder();
-
-// console.log('preOrder:', preOrder);
-// console.log('inOrder:', inOrder);
-// console.log('postOrder:', postOrder);
+module.exports = {
+  KaryNode,
+  Node,
+  BinaryTree,
+};

@@ -31,5 +31,7 @@
 
 ## Approach & Efficiency
 
+- Relied heavily on [this article](https://medium.com/swlh/binary-search-tree-in-javascript-31cb74d8263b#:~:text=To%20insert%20a%20node%20to,add%20the%20new%20node%20as) for proper syntax of class methods
+
 ## API
 <!-- Description of each method publicly available to your Linked List -->
