@@ -57,3 +57,33 @@
 
 ## API
 <!-- Description of each method publicly available to your Linked List -->
+
+## Multi-bracket Validation
+
+## Challenge Setup & Execution
+
+Branch Name: stack-queue-brackets
+Challenge Type: Code Challenge / Algorithm
+
+### Feature Tasks
+
+Write a function called `validate brackets`
+Arguments: string
+Return: boolean
+representing whether or not the brackets in the string are balanced
+There are 3 types of brackets:
+
+Round Brackets : `()`
+Square Brackets : `[]`
+Curly Brackets : `{}`
+
+Example
+Input/Output
+`{}` : `TRUE`
+`{}(){}` : `TRUE`
+`()[[Extra Characters]]` : `TRUE`
+`(){}[[]]` : `TRUE`
+`{}{Code}[Fellows](())` : `TRUE`
+`[({}]` : `FALSE`
+`(](` : `FALSE`
+`{(})` : `FALSE`
