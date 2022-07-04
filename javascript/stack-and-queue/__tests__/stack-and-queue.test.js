@@ -1,6 +1,5 @@
 'use strict';
 
-const { is } = require('cheerio/lib/api/traversing');
 const { Stack, PseudoQueue, AnimalShelter, Queue, validateBrackets } = require('../index');
 
 describe('Stack Tests', () => {
