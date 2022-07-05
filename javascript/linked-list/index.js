@@ -73,12 +73,10 @@ class LinkedList {
   insertBefore(value, newValue) {
     let insertNode = new Node(newValue);
     let current = this.head;
-    let temp;
-    while (current) {
+    while (current.next !== null) {
       if (current.next.value === value) {
-        // temp = current;
-        // current = insertNode;
-        // current.next = temp;
+        insertNode.next = current.next;
+        current = insertNode;
       }
     }
   }
@@ -102,28 +100,43 @@ class LinkedList {
   }
 }
 
+// linked-list-zip
 
+function listZip(list1, list2) {
+  let current1;
+  let current2;
+  if (list1.head === null) {
+    let linkedList1 = new LinkedList();
+    linkedList1.add(1);
+    linkedList1.add(3);
+    linkedList1.add(2);
+    current1 = linkedList1.head;
+  } else if (list2.head === null) {
+    let linkedList2 = new LinkedList();
+    linkedList2.add(5);
+    linkedList2.add(9);
+    linkedList2.add(4);
+    current2 = linkedList2.head;
+  } else {
+    current1 = list1.head;
+    current2 = list2.head;
+  }
 
-let linkedList = new LinkedList();
-console.log(linkedList.head);
+  while (current1.next && current2.next) {
+    let next1 = current1.next;
+    let next2 = current2.next;
+    current1.next = current2;
+    current2.next = next1;
+    current1 = next1;
+    current2 = next2;
+  }
+  if (current2.next) {
+    current1.next = current2;
+  }
+  return list1;
+}
 
-linkedList.add('a');
-linkedList.add('b');
-linkedList.add('c');
-linkedList.add('d');
-linkedList.add('e');
-
-// let result = linkedList.includes(2);
-// console.log(result);
-
-linkedList.traverse();
-
-console.log(linkedList.kthFromEnd(2));
-
-// console.log(linkedList.toString());
-
-// linkedList.insertBefore(3, 5);
-
-// linkedList.traverse();
-
-module.exports = LinkedList;
+module.exports = {
+  LinkedList,
+  listZip,
+};
