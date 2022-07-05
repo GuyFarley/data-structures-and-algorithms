@@ -33,5 +33,29 @@
 
 - Relied heavily on [this article](https://medium.com/swlh/binary-search-tree-in-javascript-31cb74d8263b#:~:text=To%20insert%20a%20node%20to,add%20the%20new%20node%20as) for proper syntax of class methods
 
-## API
-<!-- Description of each method publicly available to your Linked List -->
+------------------------------------------------------------
+
+## Find the Maximum Value in a Binary Tree
+
+### Challenge 16
+
+- Challenge Type: Extending an Implementation
+
+### Write the following method for the Binary Tree class
+
+- find maximum value
+  - Arguments: none
+  - Returns: number
+- Find the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+### Algorithm
+
+- Define a function <= maxValue
+- Define a var to hold max value <= max <= set to 0
+- Pre-order traverse the tree
+  - for each node encountered, if node value is greater than max, set max = node value
+- When traversing complete, return max
+
+### Whiteboard
+
+![Whiteboard for Max Value](code_challenge_16.png)
