@@ -59,3 +59,25 @@
 ### Whiteboard
 
 ![Whiteboard for Max Value](code_challenge_16.png)
+
+------------------------------------------------------------
+
+## Breadth-first Traversal
+
+### Challenge 17
+
+- Challenge Type: Code Challenge / Algorithm
+
+### Write a function called breadth first
+
+- Arguments: tree
+- Return: list of all values in the tree, in the order they were encountered
+- NOTE: Traverse the input tree using a Breadth-first approach
+
+### Algorithm
+
+Relied heavily on [this article](https://javascript.plainenglish.io/tree-traversal-in-javascript-9b1e92e15abb) for correct syntax and understanding of breadth-first traversal while writing this code.
+
+### Whiteboard
+
+![Whiteboard for Breadth-first Traversal](code_challenge_17.png)
