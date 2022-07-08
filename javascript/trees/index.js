@@ -116,7 +116,6 @@ class BinaryTree {
   }
 }
 
-
 function breadthFirstSearch(tree) {
   let queue = [];
   let result = [];
@@ -137,21 +136,46 @@ function breadthFirstSearch(tree) {
   return result;
 }
 
-let tree = new BinaryTree();
-tree.root = new Node(2);
-tree.root.left = new Node(7);
-tree.root.right = new Node(5);
-tree.root.left.left = new Node(2);
-tree.root.left.right = new Node(6);
-tree.root.left.right.left = new Node(5);
-tree.root.left.right.right = new Node(11);
-tree.root.right.right = new Node(9);
-tree.root.right.right.left = new Node(4);
+function fizzBuzzTree(tree) {
+  let results = [];
 
-let results = breadthFirstSearch(tree);
-console.log(results);
+  const traverse = (node) => {
+    if ((node.value % 3 === 0) && !(node.value % 5 === 0)) {
+      node.value = 'Fizz';
+      results.push(node.value);
+    } else if ((node.value % 5 === 0) && !(node.value % 3 === 0)) {
+      node.value = 'Buzz';
+      results.push(node.value);
+    } else if ((node.value % 5 === 0) && (node.value % 3 === 0)) {
+      node.value = 'FizzBuzz';
+      results.push(node.value);
+    } else if (!(node.value % 5 === 0) && !(node.value % 3 === 0)) {
+      node.value = node.value.toString();
+      results.push(node.value);
+    }
+    if (node.left) traverse(node.left);
+    if (node.right) traverse(node.right);
+  };
+  traverse(tree.root);
+  return results;
+}
+
+// let tree = new BinaryTree();
+// tree.root = new Node(2);
+// tree.root.left = new Node(7);
+// tree.root.right = new Node(5);
+// tree.root.left.left = new Node(2);
+// tree.root.left.right = new Node(6);
+// tree.root.left.right.left = new Node(5);
+// tree.root.left.right.right = new Node(11);
+// tree.root.right.right = new Node(9);
+// tree.root.right.right.left = new Node(4);
+
+// let results = fizzBuzzTree(tree);
+// console.log(results);
 
 module.exports = {
+  fizzBuzzTree,
   breadthFirstSearch,
   KaryNode,
   Node,

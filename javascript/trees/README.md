@@ -78,6 +78,63 @@
 
 Relied heavily on [this article](https://javascript.plainenglish.io/tree-traversal-in-javascript-9b1e92e15abb) for correct syntax and understanding of breadth-first traversal while writing this code.
 
+define function <= breadthFirstSearch
+declare empty array to hold queue of nodes <= queue
+declare empty array to hold node values in order encountered <= result
+declare variable for current node = null <= current
+
+start by pushing tree root to queue as first value
+while there are any values in the queue
+assign front node to current
+push value of current node to result array
+
+if current node has left child, push that node into queue
+if current node has right child, push that node into queue
+
+once out of loop, return result array
+
 ### Whiteboard
 
 ![Whiteboard for Breadth-first Traversal](code_challenge_17.png)
+
+------------------------------------------------------------
+
+## FizzBuzz
+
+### Challenge 18
+
+- Conduct “FizzBuzz” on a binary tree while traversing through it to create a new tree.
+
+- Set the values of each of the new nodes depending on the corresponding node value in the source tree.
+
+## Feature Tasks
+
+- Write a function called fizz buzz tree
+- Arguments: binary tree
+- Return: new binary tree
+
+Determine whether or not the value of each node is divisible by 3, 5 or both. Create a new tree with the same structure as the original, but the values modified as follows:
+
+- If the value is divisible by 3, replace the value with “Fizz”
+- If the value is divisible by 5, replace the value with “Buzz”
+- If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
+- If the value is not divisible by 3 or 5, simply turn the number into a String.
+
+### Algorithm
+
+Define function <= fizzBuzzTree (takes in a binary tree)
+Declare empty array to hold results <= results
+
+Traverse tree using recursion
+Depth first, pre-order traversal
+Takes in root node
+if node value is divisible by 3, replace node value with "Fizz"
+if node value is divisible by 5, replace node value with "Buzz"
+if node value is divisible by 3 and 5, replace node value with "FizzBuzz"
+if node value is not divisible by 3 and 5, turn number into a string
+Push each new value to results array as they are changed
+Return results array when recursion complete
+
+### Whiteboard
+
+![Whiteboard for FizzBuzz Tree](code_challenge_18.png)

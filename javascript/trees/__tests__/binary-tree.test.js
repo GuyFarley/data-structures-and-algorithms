@@ -1,6 +1,6 @@
 'use strict';
 
-const { Node, BinaryTree } = require('../index');
+const { Node, BinaryTree, fizzBuzzTree } = require('../index');
 
 describe('Binary Tree Tests', () => {
 
@@ -112,6 +112,60 @@ describe('Binary Tree Tests', () => {
 
     let max = tree.maxValue();
     expect(max).toEqual(11);
+  });
+
+  test('Replaces node value divisible by 3 with "Fizz"', () => {
+    let tree = new BinaryTree();
+    tree.root = new Node(2);
+    tree.root.left = new Node(7);
+    tree.root.right = new Node(5);
+    tree.root.left.left = new Node(2);
+    tree.root.left.right = new Node(6);
+    tree.root.left.right.left = new Node(5);
+    tree.root.left.right.right = new Node(11);
+    tree.root.right.right = new Node(9);
+    tree.root.right.right.left = new Node(4);
+
+    let results = fizzBuzzTree(tree);
+    expect(results[3]).toEqual('Fizz');
+    expect(results[7]).toEqual('Fizz');
+    expect(results[0]).not.toEqual('Fizz');
+  });
+
+  test('Replaces node value divisible by 5 with "Buzz"', () => {
+    let tree = new BinaryTree();
+    tree.root = new Node(2);
+    tree.root.left = new Node(7);
+    tree.root.right = new Node(5);
+    tree.root.left.left = new Node(2);
+    tree.root.left.right = new Node(6);
+    tree.root.left.right.left = new Node(5);
+    tree.root.left.right.right = new Node(11);
+    tree.root.right.right = new Node(9);
+    tree.root.right.right.left = new Node(4);
+
+    let results = fizzBuzzTree(tree);
+    expect(results[4]).toEqual('Buzz');
+    expect(results[6]).toEqual('Buzz');
+    expect(results[1]).not.toEqual('Buzz');
+  });
+
+  test('Replaces node value NOT divisible by both 3 and 5 with stringified value', () => {
+    let tree = new BinaryTree();
+    tree.root = new Node(2);
+    tree.root.left = new Node(7);
+    tree.root.right = new Node(5);
+    tree.root.left.left = new Node(2);
+    tree.root.left.right = new Node(6);
+    tree.root.left.right.left = new Node(5);
+    tree.root.left.right.right = new Node(11);
+    tree.root.right.right = new Node(9);
+    tree.root.right.right.left = new Node(4);
+
+    let results = fizzBuzzTree(tree);
+    expect(results[0]).toEqual('2');
+    expect(results[1]).toEqual('7');
+    expect(results[5]).toEqual('11');
   });
 
 });
