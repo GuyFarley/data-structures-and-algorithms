@@ -94,13 +94,29 @@ describe('Linked List', () => {
   });
 
 
+  test('Adds a new node before specified value', () => {
+    const linkedList = new LinkedList;
+    linkedList.add('a');
+    linkedList.add('b');
+    linkedList.add('c');
+    linkedList.add('d');
+    linkedList.add('e');
+    linkedList.insertBefore('c', 'q');
 
-  // test('Adds a new node before specified value', () => {
+    expect(linkedList.head.next.next.value).toEqual('q');
+  });
 
-  // });
+  test('Adds a new node after a specified value', () => {
+    const linkedList = new LinkedList;
+    linkedList.add('a');
+    linkedList.add('b');
+    linkedList.add('c');
+    linkedList.add('d');
+    linkedList.add('e');
+    linkedList.insertAfter('c', 'q');
+    linkedList.traverse();
 
-  // test('Adds a new node before specified value', () => {
-
-  // });
+    expect(linkedList.head.next.next.next.value).toEqual('q');
+  });
 
 });
