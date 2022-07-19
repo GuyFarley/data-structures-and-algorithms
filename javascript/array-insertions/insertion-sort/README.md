@@ -6,7 +6,7 @@ Once you are done with your article, code a working, tested implementation of In
 
 ## Whiteboard Process
 
-![Whiteboard for Insertion Sort Code Challenge](/code_challenge_26.png)
+![Whiteboard for Insertion Sort Code Challenge](./code_challenge_26.png)
 
 ## Blog Article
 
@@ -59,12 +59,12 @@ Present a complete set of working tests
 
 Taking the input array: `[20,18,12,8,5,-2]`
 
-![Visual representation](/cc26_visual.png)
+![Visual representation](./cc26_visual.png)
 
 Stepping through the first iteration, we can see the following:
 
-![Step through](/cc26_stepthrough.png)
+![Step through](./cc26_stepthrough.png)
 
 Upon confirming the steps are correct, we can then proceed to write our code:
 
-![Step through](/cc26_code.png)
+![Step through](./cc26_code.png)
