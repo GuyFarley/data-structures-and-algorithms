@@ -63,3 +63,7 @@ Examples:
 
 - Input: `"It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."`
 - Output: `"summer"`
+
+## Whiteboard
+
+![Whiteboard visual for repeated word hashtable](/cc31_whiteboard.png)
