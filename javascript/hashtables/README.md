@@ -66,4 +66,4 @@ Examples:
 
 ## Whiteboard
 
-![Whiteboard visual for repeated word hashtable](/cc31_whiteboard.png)
+![Whiteboard visual for repeated word hashtable](./cc31_whiteboard.png)
