@@ -71,9 +71,14 @@ class HashTable {
       let current = bucket.head;
 
       while (current) {
-        if (current.value === key) {
+        if (current[0] === key) {
           return true;
         }
+        // if ((current.value === key) && (current.next.value !== null)) {
+        //   console.log(current.value);
+        //   return current.value;
+        // }
+        current = current.next;
       }
       return false;
     } else {
@@ -105,19 +110,28 @@ class HashTable {
   }
 }
 
-// let table = new HashTable(1024);
 
-// console.log(table);
-// console.log(table.hash('Ryan'));
-// table.set('Ryan', 47);
-// table.set('Lucky', 4);
-// table.set('Audrey', { name: 'Audrey' });
-// console.log(table);
-// console.log('Ryan', table.get('Ryan'));
-// console.log('Audrey', table.get('Audrey'));
+function repeatedWord(string) {
 
-// let keys = table.keys();
-// console.log(keys);
+  let stringArray = string.split(' ');
+  let hashTable = new HashTable(1024);
+
+  stringArray.forEach(element => {
+    hashTable.set(element);
+  });
+
+  let keys = hashTable.keys();
+  console.log('keys: ', keys);
+
+  stringArray.forEach(element => {
+    let contains = hashTable.contains(element);
+    console.log(contains);
+  });
+
+}
+
+let string = 'Once upon a time, there was a brave princess who...';
+repeatedWord(string);
 
 module.exports = {
   HashTable,
