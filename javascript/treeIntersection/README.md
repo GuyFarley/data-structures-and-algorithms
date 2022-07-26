@@ -7,25 +7,20 @@ Find common values in 2 binary trees
 
 ## Algorithm
 
-define a function called treeIntersection
+- define a function called treeIntersection - takes in 2 binary trees
+- declare a variable results to be an empty array
+- create a new HashTable from existing class (1024 size)
+- declare variable called counter <- 0;
 
-- takes in 2 binary trees
-declare a variable results to be an empty array
-create a new HashTable from existing class
-- 1024 size
-declare variable called counter <- 0;
-
-traverse tree1
-
-- for each node, use existing set method to place into hashtable
+- define a function called traverse tree1
+  - for each node, use existing set method to place into hashtable
   - set key and value to equal node.value
 
-traverse tree2
-
-- for each node, use existing contains method to compare to values in hashtable
+- define a function called traverse tree2
+  - for each node, use existing contains method to compare to values in hashtable
   - if true is returned, push current node value to results array
 
-return results array
+- return results array
 
 ## Code
 
