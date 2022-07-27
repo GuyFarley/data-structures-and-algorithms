@@ -67,3 +67,66 @@ Examples:
 ## Whiteboard
 
 ![Whiteboard visual for repeated word hashtable](./cc31_whiteboard.png)
+
+----------------------------
+
+## Code Challenge: Class 33
+
+Implement a simplified LEFT JOIN for 2 Hashmaps
+
+Write a function that LEFT JOINs two hashmaps into a single data structure.
+
+- Write a function called left join
+- Arguments: two hash maps
+  - The first parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+  - The second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+- Return: The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic
+
+NOTES:
+
+- Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
+- LEFT JOIN means all the values in the first hashmap are returned, and if values exist in the “right” hashmap, they are appended to the result row.
+- If no values exist in the right hashmap, then some flavor of `NULL` should be appended to the result row.
+
+## Algorithm
+
+```javascript
+
+// create arrays that will be used to populate 2 hashtables, using example keys and values
+
+firstArray = [
+  ["font", "enamored"],
+  ["wrath", "anger"],
+  ["diligent", "employed"],
+  ["outfit", "garb"],
+  ["guide", "usher"]
+]
+
+secondArray = [
+  ["font", "averse"],
+  ["wrath", "delight"],
+  ["diligent", "idle"],
+  ["flow", "jam"],
+  ["guide", "follow"]
+]
+
+
+// create 2 seperate hashtables using existing HashTable class
+
+create a new HashTable from existing class <- hashtable1
+iterate over firstArray, for each array inside it, run hashtable.set method -> placing it into hashtable1
+repeat with secondArray to create hashtable2
+
+// function:
+
+define a function called leftJoin, that takes in 2 hashtables (created above)
+define a blank array variable <- returnArray
+run keys method to get a collection of keys (array), set to variable <- keys
+iterate through keys array and for each element (key), run get method on hashtable1 <- set key + returned value into returnArray
+
+iterate through keys array and for each element, run get method on hashtable2 <- push returned value into returnArray on the appropriate existing array
+iterate through returnArray
+returned value gets compared to returnArray[i][0]
+if matches, push returned value into that array <- which is an element inside returnArray
+
+```

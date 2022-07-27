@@ -130,6 +130,46 @@ function repeatedWord(string) {
 
 }
 
+
+// LEFT JOIN Algorithm
+
+// firstArray = [
+//   ["font", "enamored"],
+//   ["wrath", "anger"],
+//   ["diligent", "employed"],
+//   ["outfit", "garb"],
+//   ["guide", "usher"]
+// ]
+
+// secondArray = [
+//   ["font", "averse"],
+//   ["wrath", "delight"],
+//   ["diligent", "idle"],
+//   ["flow", "jam"],
+//   ["guide", "follow"]
+// ]
+
+
+// // create 2 seperate hashtables using existing HashTable class
+
+// create a new HashTable from existing class <- hashtable1
+// iterate over firstArray, for each array inside it, run hashtable.set method -> placing it into hashtable1
+// repeat with secondArray to create hashtable2
+
+// // function:
+
+// define a function called leftJoin, that takes in 2 hashtables (created above)
+// define a blank array variable <- returnArray
+// run keys method to get a collection of keys (array), set to variable <- keys
+// iterate through keys array and for each element (key), run get method on hashtable1 <- set key + returned value into returnArray
+
+// iterate through keys array and for each element, run get method on hashtable2 <- push returned value into returnArray on the appropriate existing array
+// iterate through returnArray
+// returned value gets compared to returnArray[i][0]
+// if matches, push returned value into that array <- which is an element inside returnArray
+
+
+
 let string = 'Once upon a time, there was a brave princess who...';
 repeatedWord(string);
 
