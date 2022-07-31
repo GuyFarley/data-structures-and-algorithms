@@ -24,6 +24,11 @@ class Graph {
     return vertex;
   }
 
+  // get nodes
+  // Arguments: none
+  // Returns all of the nodes in the graph as a collection (set, list, or similar)
+
+
   addDirectedEdge(startVertex, endVertex) {
     // find the node we want to connect:
     const neighbors = this.adjacencyList.get(startVertex);
@@ -33,6 +38,11 @@ class Graph {
   getNeighbors(vertex) {
     return [...this.adjacencyList.get(vertex)];
   }
+
+  // size
+  // Arguments: none
+  // Returns the total number of nodes in the graph
+
 
   breadthFirst(root, cb) {
     const queue = [root];
@@ -84,32 +94,38 @@ class Graph {
 
 }
 
-const graph = new Graph();
+// const graph = new Graph();
 
-const A = graph.addVertex('A');
-const B = graph.addVertex('B');
-const D = graph.addVertex('D');
-const C = graph.addVertex('C');
-const E = graph.addVertex('E');
-const F = graph.addVertex('F');
-const G = graph.addVertex('G');
-const H = graph.addVertex('H');
+// const A = graph.addVertex('A');
+// const B = graph.addVertex('B');
+// const D = graph.addVertex('D');
+// const C = graph.addVertex('C');
+// const E = graph.addVertex('E');
+// const F = graph.addVertex('F');
+// const G = graph.addVertex('G');
+// const H = graph.addVertex('H');
 
-graph.addDirectedEdge(A, B);
-graph.addDirectedEdge(A, D);
-graph.addDirectedEdge(A, C);
-graph.addDirectedEdge(B, G);
-graph.addDirectedEdge(D, F);
-graph.addDirectedEdge(D, H);
-graph.addDirectedEdge(F, H);
-graph.addDirectedEdge(C, H);
-graph.addDirectedEdge(F, E);
+// graph.addDirectedEdge(A, B);
+// graph.addDirectedEdge(A, D);
+// graph.addDirectedEdge(A, C);
+// graph.addDirectedEdge(B, G);
+// graph.addDirectedEdge(D, F);
+// graph.addDirectedEdge(D, H);
+// graph.addDirectedEdge(F, H);
+// graph.addDirectedEdge(C, H);
+// graph.addDirectedEdge(F, E);
 
 // console.log(graph.adjacencyList);
 
-graph.depthFirst(A, console.log);
+// graph.depthFirst(A, console.log);
 
-console.log('************************');
+// console.log('************************');
 
-graph.breadthFirst(A, console.log);
+// graph.breadthFirst(A, console.log);
+
+module.exports = {
+  Vertex,
+  Edge,
+  Graph,
+};
 
